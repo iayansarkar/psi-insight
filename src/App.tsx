@@ -321,7 +321,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-full mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center mb-4">
@@ -403,7 +403,7 @@ function App() {
 
         {/* Results Section */}
         {results.length > 0 && (
-          <div className="space-y-8">
+          <div className="space-y-8 max-w-none">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-gray-900">Analysis Results</h2>
               <button
@@ -434,19 +434,19 @@ function App() {
                     <table className="w-full text-sm">
                       <thead className="bg-blue-50">
                         <tr>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Date</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Device</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Website Name</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Time to First Byte</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Start Render</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">First Contentful Paint</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Speed Index</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Largest Contentful Paint</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Cumulative Layout Shift</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Total Blocking Time</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Page Weight</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Interaction to Next Paint (INP)</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Total Loading First View</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Date</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[80px]">Device</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[250px]">Website Name</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[120px]">Time to First Byte</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Start Render</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">First Contentful Paint</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Speed Index</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Largest Contentful Paint</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Cumulative Layout Shift</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[120px]">Total Blocking Time</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Page Weight</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[160px]">Interaction to Next Paint (INP)</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Total Loading First View</th>
                         </tr>
                       </thead>
                       <tbody className="bg-white">
@@ -492,19 +492,19 @@ function App() {
 
                           return (
                             <tr key={`mobile-${index}`} className="hover:bg-gray-50">
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{date}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{device}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs max-w-xs truncate" title={websiteName}>{websiteName}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(ttfb, 'ttfb')}`}>{ttfb}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(startRender, 'fcp')}`}>{startRender}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(fcp, 'fcp')}`}>{fcp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(si, 'si')}`}>{si}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(lcp, 'lcp')}`}>{lcp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(cls, 'cls')}`}>{cls}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor((parseFloat(tbt) / 1000).toString(), 'tbt')}`}>{(parseFloat(tbt) / 1000).toFixed(3)}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(pageWeight.toString(), 'pageWeight')}`}>{pageWeight}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{inp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(totalLoading, 'tti')}`}>{totalLoading}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{date}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{device}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm" title={websiteName}>{websiteName}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(ttfb, 'ttfb')}`}>{ttfb}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(startRender, 'fcp')}`}>{startRender}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(fcp, 'fcp')}`}>{fcp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(si, 'si')}`}>{si}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(lcp, 'lcp')}`}>{lcp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(cls, 'cls')}`}>{cls}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor((parseFloat(tbt) / 1000).toString(), 'tbt')}`}>{(parseFloat(tbt) / 1000).toFixed(3)}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(pageWeight.toString(), 'pageWeight')}`}>{pageWeight}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{inp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(totalLoading, 'tti')}`}>{totalLoading}</td>
                             </tr>
                           );
                         })}
@@ -524,19 +524,19 @@ function App() {
                     <table className="w-full text-sm">
                       <thead className="bg-green-50">
                         <tr>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Date</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Device</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Website Name</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Time to First Byte</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Start Render</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">First Contentful Paint</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Speed Index</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Largest Contentful Paint</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Cumulative Layout Shift</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Total Blocking Time</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Page Weight</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Interaction to Next Paint (INP)</th>
-                          <th className="px-3 py-2 text-left text-xs font-medium text-gray-700 border border-gray-300">Total Loading First View</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Date</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[80px]">Device</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[250px]">Website Name</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[120px]">Time to First Byte</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Start Render</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">First Contentful Paint</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Speed Index</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Largest Contentful Paint</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Cumulative Layout Shift</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[120px]">Total Blocking Time</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[100px]">Page Weight</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[160px]">Interaction to Next Paint (INP)</th>
+                          <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 border border-gray-300 min-w-[140px]">Total Loading First View</th>
                         </tr>
                       </thead>
                       <tbody className="bg-white">
@@ -582,19 +582,19 @@ function App() {
 
                           return (
                             <tr key={`desktop-${index}`} className="hover:bg-gray-50">
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{date}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{device}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs max-w-xs truncate" title={websiteName}>{websiteName}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(ttfb, 'ttfb')}`}>{ttfb}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(startRender, 'fcp')}`}>{startRender}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(fcp, 'fcp')}`}>{fcp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(si, 'si')}`}>{si}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(lcp, 'lcp')}`}>{lcp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(cls, 'cls')}`}>{cls}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor((parseFloat(tbt) / 1000).toString(), 'tbt')}`}>{(parseFloat(tbt) / 1000).toFixed(3)}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(pageWeight.toString(), 'pageWeight')}`}>{pageWeight}</td>
-                              <td className="px-3 py-2 border border-gray-300 text-xs">{inp}</td>
-                              <td className={`px-3 py-2 border border-gray-300 text-xs ${getCellColor(totalLoading, 'tti')}`}>{totalLoading}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{date}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{device}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm" title={websiteName}>{websiteName}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(ttfb, 'ttfb')}`}>{ttfb}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(startRender, 'fcp')}`}>{startRender}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(fcp, 'fcp')}`}>{fcp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(si, 'si')}`}>{si}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(lcp, 'lcp')}`}>{lcp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(cls, 'cls')}`}>{cls}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor((parseFloat(tbt) / 1000).toString(), 'tbt')}`}>{(parseFloat(tbt) / 1000).toFixed(3)}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(pageWeight.toString(), 'pageWeight')}`}>{pageWeight}</td>
+                              <td className="px-4 py-3 border border-gray-300 text-sm">{inp}</td>
+                              <td className={`px-4 py-3 border border-gray-300 text-sm ${getCellColor(totalLoading, 'tti')}`}>{totalLoading}</td>
                             </tr>
                           );
                         })}
