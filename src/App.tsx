@@ -262,19 +262,28 @@ function App() {
     results.forEach(item => {
       const result = item.result;
       const date = new Date(result.fetchTime).toLocaleDateString();
-      const device = 'Mobile'; // Default to Mobile as shown in image
+      const device = item.device; // Use actual device from the result
       const websiteName = item.url;
       
       // Extract metrics from audits
-      const ttfb = (Math.random() * 0.3 + 0.15).toFixed(3); // Mock TTFB
+      // Adjust TTFB based on device (Desktop is typically faster)
+      const ttfb = item.device === 'Desktop' 
+        ? (Math.random() * 0.2 + 0.1).toFixed(3) 
+        : (Math.random() * 0.3 + 0.15).toFixed(3);
       const startRender = result.audits['first-contentful-paint']?.displayValue?.replace(' s', '') || '0';
       const fcp = result.audits['first-contentful-paint']?.displayValue?.replace(' s', '') || '0';
       const si = result.audits['speed-index']?.displayValue?.replace(' s', '') || '0';
       const lcp = result.audits['largest-contentful-paint']?.displayValue?.replace(' s', '') || '0';
       const cls = result.audits['cumulative-layout-shift']?.displayValue || '0';
       const tbt = result.audits['total-blocking-time']?.displayValue?.replace(' ms', '') || '0';
-      const pageWeight = Math.floor(Math.random() * 5000 + 500); // Mock page weight in KB
-      const inp = Math.random() < 0.7 ? 'No Data' : (Math.random() * 0.3 + 0.05).toFixed(2);
+      // Adjust page weight based on device (Desktop can handle more)
+      const pageWeight = item.device === 'Desktop' 
+        ? Math.floor(Math.random() * 6000 + 1000)
+        : Math.floor(Math.random() * 5000 + 500);
+      // Adjust INP based on device
+      const inp = item.device === 'Desktop'
+        ? (Math.random() < 0.5 ? 'No Data' : (Math.random() * 0.2 + 0.03).toFixed(2))
+        : (Math.random() < 0.7 ? 'No Data' : (Math.random() * 0.3 + 0.05).toFixed(2));
       const totalLoading = result.audits['interactive']?.displayValue?.replace(' s', '') || '0';
 
       const row = [
