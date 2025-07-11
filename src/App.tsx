@@ -428,9 +428,9 @@ function App() {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
                 <h3 className="text-xl font-bold mb-2">Performance Analysis Results</h3>
-                <p className="text-blue-100">
+              {/*  <p className="text-blue-100">
                   Analyzed {Math.ceil(results.length / 2)} website{Math.ceil(results.length / 2) !== 1 ? 's' : ''} in both Mobile and Desktop modes
-                </p>
+                </p> */}
               </div>
 
               {/* Mobile Results Table */}
