@@ -615,9 +615,9 @@ function App() {
 
               {/* Footer */}
               <div className="bg-gray-50 px-6 py-4 text-center">
-                <p className="text-sm text-gray-600">
+               {/* <p className="text-sm text-gray-600">
                   Powered by Google Lighthouse • Analysis completed at {new Date().toLocaleString()}
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
